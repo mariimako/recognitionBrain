@@ -3,7 +3,7 @@ import React from 'react';
 const Signin = ({onRouteChange}) => {
     return (
         <article className="br3 b--black-10 ba mv4 w-100 w-50-m w-25-l mw5 shadow-5 center">
-            <main classNameName="pa4 black-80">
+            <main className="pa4 black-80">
                 <form className="measure">
                     <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                     <legend className="f1 fw6 ph0 mh0">Sign In</legend>

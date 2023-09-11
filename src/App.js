@@ -59,7 +59,8 @@ class App extends Component {
     this.state = {
       input: '',
       imageUrl: '',
-      route: 'signin' // keeps track where we are on page
+      route: 'signin', // keeps track where we are on page
+      isSignedIn: false
     }
   }
 
@@ -79,10 +80,12 @@ class App extends Component {
   }
 
   onRouteChange = (route) => {
+    if (route === 'signout') {
+      this.setState({isSignedIn: false})
+    } else if (route === 'home') {
+      this.setState({isSignedIn: true})
+    }
     this.setState({route: route});
-  }
-  onInputChange = (event) => { // property of the app, access by this.onInputChange, this is an event listener
-    this.setState({input: event.target.value});
   }
 
 
@@ -100,11 +103,12 @@ class App extends Component {
       .catch(err => console.log(err));
   }
   render() {
+    const { isSignedIn, input, route } = this.state;
     return (
       <div className="App">
         <ParticlesBg type="fountain" bg={true} />
-        <Navigation onRouteChange={this.onRouteChange}/>
-        { this.state.route === 'home' 
+        <Navigation onRouteChange={this.onRouteChange} isSignedIn = {isSignedIn}/>
+        { route === 'home' 
             ? <div>
               <Logo />
               <ImageLinkForm 
@@ -112,9 +116,9 @@ class App extends Component {
                 onSubmit={this.onSubmit}
               />
               <Rank />
-              <Recognition imageUrl = {this.state.input}  />
+              <Recognition imageUrl = {input}  />
               </div> 
-              : (this.state.route === 'signin' 
+              : (route === 'signin' 
               ? <Signin onRouteChange={this.onRouteChange}/> 
               : <Register onRouteChange={this.onRouteChange}/>
               )}
