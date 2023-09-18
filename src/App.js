@@ -11,11 +11,6 @@ import Register from './components/Register/Register.js';
 
 import './App.css';
 
- 
- ///////////////////////////////////////////////////////////////////////////////////////////////////
- // In this section, we set the user authentication, user and app ID, model details, and the URL
- // of the image we want as an input. 
- //////////////////////////////////////////////////////////////////////////////////////////////////
  const returnClarifaiRequestOptions = (imageUrl) => { // return clarifai
      // Your PAT (Personal Access Token) can be found in the portal under Authentification
      const PAT = '3deb7aed10ef4c85b0fed0ea4873c719';
@@ -65,7 +60,6 @@ class App extends Component {
   }
 
   outputModerationValues = (output) => {
-
     output.forEach((element) => {
       console.log(element);
       const newDiv = document.createElement("div");
@@ -74,9 +68,6 @@ class App extends Component {
       const currentDiv = document.getElementById("result-values");
       currentDiv.appendChild(newDiv);
     });
-
-
-
   }
 
   onRouteChange = (route) => {
