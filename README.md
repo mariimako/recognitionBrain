@@ -1,5 +1,5 @@
 Full react web application using Express, Node, Knex.js, Postgresql as backend. Backend source code available here: https://github.com/mariimako/recognitionBrain-api. 
-Deployment not scheduled. Clarafai API detects explicit images within posted image. Databse stores login info securly and ranking system.
+Deployment not scheduled. Clarafai API detects explicit images within posted image. Database stores login info securly and ranking system.
 
 
 
